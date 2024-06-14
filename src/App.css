@@ -100,11 +100,20 @@
   opacity: 1;
   z-index: 999;
 }
+
+.header-link {
+  margin: 0px 10px;
+}
+
+.account-input {
+  padding-top: 100px;
+}
+
 .crud {
-  top: 70px;
   position: relative;
 }
 .crud-body {
+  top: 70px;
   position: absolute;
   left: 202px;
   padding: 30px;
@@ -112,6 +121,7 @@
 }
 .crud-side {
   position: fixed;
+  top: 70px;
   height: 100vh;
   width: 200px;
   box-shadow: #282c34 0px 1px 2px;

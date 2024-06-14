@@ -48,7 +48,7 @@ export default function Login({ cartItem, userUpdate }) {
     return (
     <>
         <div className="container veiw-h">
-            <div className="row my-5">
+            <div className="account-input">
                 <div className="col-md-4 m-auto bg-white rounded p-5">
                
                     

@@ -53,10 +53,10 @@ export default function Header({items, setSearchData}) {
                     }
                 </div>
                 <div className="d-flex nav-item dropdown">
-                    {!user ? <Link className="nav-link text-white" to="/login">Login</Link> : ''}
+                    {!user ? <Link className="nav-link text-white header-link" to="/login">Login</Link> : ''}
                 </div>
                 <div className="d-flex nav-item">
-                    {!user ? <Link className="nav-link text-white" to="/register">Register</Link> : ''}
+                    {!user ? <Link className="nav-link text-white header-link" to="/register">Register</Link> : ''}
                 </div>
                 </div>
             </div>

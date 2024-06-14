@@ -33,7 +33,7 @@ export default function Registration() {
   return (
     <>
         <div className="container veiw-h">
-            <div className="row my-5">
+            <div className="account-input">
                 <div className="col-md-4 m-auto bg-white rounded p-5">
                  
                     {/* <form action="/register" method="POST" className="mt-4"> */}
