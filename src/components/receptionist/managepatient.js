@@ -127,8 +127,9 @@ export default function PatientManagement() {
     };
 
     return (
-        <div className='container mt-5'>
-             <Homepagereceptionist/>
+        <div className="crud">
+        <Homepagereceptionist />
+        <main className="crud-body">
             <button className="btn btn-primary mb-3" onClick={openAddPatientModal}>Add Patient</button>
             <table className='table table-striped'>
                 {/* Table Header */}
@@ -339,7 +340,7 @@ export default function PatientManagement() {
         </form>
     </div>
 )}
-
+            </main>
         </div>
     );
 }

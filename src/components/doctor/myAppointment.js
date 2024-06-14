@@ -122,9 +122,9 @@ export default function DoctorManagement() {
     }, [loggedInEmail]);
 
     return (
-        <div>
-              <Homepagedoctor/>
-            <main className="col-md-10 ms-sm-auto col-lg-10 px-md-4 main-content">
+        <div className="crud">
+        <Homepagedoctor />
+        <main className="crud-body">
                 <h1>Appointments</h1>
                 <table className='table table-striped'>
                     <thead className='thead-dark'>

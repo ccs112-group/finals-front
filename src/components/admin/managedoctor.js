@@ -127,181 +127,178 @@ export default function DoctorManagement() {
     };
 
     return (
-        <div>
-            <Homepage />
-            <main className="col-md-10 ms-sm-auto col-lg-10 px-md-4 main-content">
-                <button className="btn btn-primary mb-3" onClick={openAddDoctorModal}>Add Doctor</button>
-                <table className='table table-striped'>
-                    {/* Table Header */}
-                    <thead className='thead-dark'>
-                        <tr>
-                            <th>ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Specialization</th>
-                            <th>License Number</th>
-                            <th>Options</th>
-                        </tr>
-                    </thead>
-                    {/* Table Body */}
-                    <tbody>
-                        {doctors.map((doctor) => (
-                            <tr key={doctor.id}>
-                                <td>{doctor.id}</td>
-                                <td>{doctor.first_name}</td>
-                                <td>{doctor.last_name}</td>
-                                <td>{doctor.specialization}</td>
-                                <td>{doctor.license_number}</td>
-                                <td>
-                                    <button className="btn btn-success mr-2" onClick={() => openViewDoctor(doctor)} type="button">
-                                        View
-                                    </button>
-                                    <button className="btn btn-warning mr-2" onClick={() => openEditDoctor(doctor)} type="button">
-                                        Edit
-                                    </button>
-                                    <button className="btn btn-danger" onClick={() => openDeleteDoctor(doctor)} type="button">
-                                        Delete
-                                    </button>
-                                </td>
+            <div className="crud">
+                <Homepage />
+                <main className="crud-body">
+                    <button className="btn btn-primary mb-3" onClick={openAddDoctorModal}>Add Doctor</button>
+                    <table className='table table-striped'>
+                        {/* Table Header */}
+                        <thead className='thead-dark'>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Specialization</th>
+                                <th>License Number</th>
+                                <th>Options</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </main>
-            {selectedDoctor && (
-    <div className="modal show d-block" tabIndex="-1" role="dialog">
-        <div className="modal-dialog" role="document">
-            <div className="modal-content">
-                <div className="modal-header">
-                    <h5 className="modal-title">{selectedDoctor.first_name} {selectedDoctor.last_name} Details</h5>
-                    <button type="button" className="close" onClick={handleCloseModal} aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div className="modal-body">
-                    <p>First Name: {selectedDoctor.first_name}</p>
-                    <p>Last Name: {selectedDoctor.last_name}</p>
-                    <p>Specialization: {selectedDoctor.specialization}</p>
-                    <p>License Number: {selectedDoctor.license_number}</p>
-                    {/* Add additional fields as needed */}
-                </div>
-                <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-)}
+                        </thead>
+                        {/* Table Body */}
+                        <tbody>
+                            {doctors.map((doctor) => (
+                                <tr key={doctor.id}>
+                                    <td>{doctor.id}</td>
+                                    <td>{doctor.first_name}</td>
+                                    <td>{doctor.last_name}</td>
+                                    <td>{doctor.specialization}</td>
+                                    <td>{doctor.license_number}</td>
+                                    <td>
+                                        <button className="btn btn-success mr-2" onClick={() => openViewDoctor(doctor)} type="button">
+                                            View
+                                        </button>
+                                        <button className="btn btn-warning mr-2" onClick={() => openEditDoctor(doctor)} type="button">
+                                            Edit
+                                        </button>
+                                        <button className="btn btn-danger" onClick={() => openDeleteDoctor(doctor)} type="button">
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </main>
+                {selectedDoctor && (
+                    <div className="modal show d-block" tabIndex="-1" role="dialog">
+                        <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title">{selectedDoctor.first_name} {selectedDoctor.last_name} Details</h5>
+                                    <button type="button" className="close" onClick={handleCloseModal} aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div className="modal-body">
+                                    <p>First Name: {selectedDoctor.first_name}</p>
+                                    <p>Last Name: {selectedDoctor.last_name}</p>
+                                    <p>Specialization: {selectedDoctor.specialization}</p>
+                                    <p>License Number: {selectedDoctor.license_number}</p>
+                                    {/* Add additional fields as needed */}
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+                {editDoctor && (
+                    <div className="modal show d-block" tabIndex="-1" role="dialog">
+                        <form onSubmit={submitEditedDoctor}>
+                            <div className="modal-dialog" role="document">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title">Edit {editDoctor.first_name} {editDoctor.last_name}</h5>
+                                        <button type="button" className="close" onClick={handleCloseModal} aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div className="modal-body">
+                                        <div className="form-group">
+                                            <label>First Name:</label>
+                                            <input type='text' className='form-control' name='first_name' value={editDoctor.first_name} onChange={handleInputChange} />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Last Name:</label>
+                                            <input type='text' className='form-control' name='last_name' value={editDoctor.last_name} onChange={handleInputChange} />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Specialization:</label>
+                                            <input type='text' className='form-control' name='specialization' value={editDoctor.specialization} onChange={handleInputChange} />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>License Number:</label>
+                                            <input type='text' className='form-control' name='license_number' value={editDoctor.license_number} onChange={handleInputChange} />
+                                        </div>
+                                        {/* Add additional fields as needed */}
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button type="submit" className="btn btn-success">Save</button>
+                                        <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                )}
 
-{editDoctor && (
-    <div className="modal show d-block" tabIndex="-1" role="dialog">
-        <form onSubmit={submitEditedDoctor}>
-            <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title">Edit {editDoctor.first_name} {editDoctor.last_name}</h5>
-                        <button type="button" className="close" onClick={handleCloseModal} aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                {deleteDoctor && (
+                    <div className="modal show d-block" tabIndex="-1" role="dialog">
+                        <form onSubmit={submitDeletedDoctor}>
+                            <div className="modal-dialog" role="document">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title">Delete {deleteDoctor.first_name} {deleteDoctor.last_name}?</h5>
+                                        <button type="button" className="close" onClick={handleCloseModal} aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button type="submit" className="btn btn-danger">Yes</button>
+                                        <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>No</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div className="modal-body">
-                        <div className="form-group">
-                            <label>First Name:</label>
-                            <input type='text' className='form-control' name='first_name' value={editDoctor.first_name} onChange={handleInputChange} />
-                        </div>
-                        <div className="form-group">
-                            <label>Last Name:</label>
-                            <input type='text' className='form-control' name='last_name' value={editDoctor.last_name} onChange={handleInputChange} />
-                        </div>
-                        <div className="form-group">
-                            <label>Specialization:</label>
-                            <input type='text' className='form-control' name='specialization' value={editDoctor.specialization} onChange={handleInputChange} />
-                        </div>
-                        <div className="form-group">
-                            <label>License Number:</label>
-                            <input type='text' className='form-control' name='license_number' value={editDoctor.license_number} onChange={handleInputChange} />
-                        </div>
-                        {/* Add additional fields as needed */}
-                    </div>
-                    <div className="modal-footer">
-                        <button type="submit" className="btn btn-success">Save</button>
-                        <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>Close</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-)}
+                )}
 
-{deleteDoctor && (
-    <div className="modal show d-block" tabIndex="-1" role="dialog">
-        <form onSubmit={submitDeletedDoctor}>
-            <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title">Delete {deleteDoctor.first_name} {deleteDoctor.last_name}?</h5>
-                        <button type="button" className="close" onClick={handleCloseModal} aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                {newDoctor && (
+                    <div className="modal show d-block" tabIndex="-1" role="dialog">
+                        <form onSubmit={submitNewDoctor}>
+                            <div className="modal-dialog" role="document">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title">Add New Doctor</h5>
+                                        <button type="button" className="close" onClick={handleCloseModal} aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div className="modal-body">
+                                        <div className="form-group">
+                                            <label>First Name:</label>
+                                            <input type='text' className='form-control' name='first_name' value={newDoctor.first_name || ''} onChange={handleNewDoctorInputChange} required />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Last Name:</label>
+                                            <input type='text' className='form-control' name='last_name' value={newDoctor.last_name || ''} onChange={handleNewDoctorInputChange} required />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Specialization:</label>
+                                            <input type='text' className='form-control' name='specialization' value={newDoctor.specialization || ''} onChange={handleNewDoctorInputChange} required />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>License Number:</label>
+                                            <input type='text' className='form-control' name='license_number' value={newDoctor.license_number || ''} onChange={handleNewDoctorInputChange} required />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Phone:</label>
+                                            <input type='text' className='form-control' name='phone' value={newDoctor.phone || ''} onChange={handleNewDoctorInputChange} required />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Email:</label>
+                                            <input type='email' className='form-control' name='email' value={newDoctor.email || ''} onChange={handleNewDoctorInputChange} required />
+                                        </div>
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button type="submit" className="btn btn-success">Save</button>
+                                        <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div className="modal-footer">
-                        <button type="submit" className="btn btn-danger">Yes</button>
-                        <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>No</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-)}
-
-{newDoctor && (
-    <div className="modal show d-block" tabIndex="-1" role="dialog">
-        <form onSubmit={submitNewDoctor}>
-            <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title">Add New Doctor</h5>
-                        <button type="button" className="close" onClick={handleCloseModal} aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div className="modal-body">
-                        <div className="form-group">
-                            <label>First Name:</label>
-                            <input type='text' className='form-control' name='first_name' value={newDoctor.first_name || ''} onChange={handleNewDoctorInputChange} required />
-                        </div>
-                        <div className="form-group">
-                            <label>Last Name:</label>
-                            <input type='text' className='form-control' name='last_name' value={newDoctor.last_name || ''} onChange={handleNewDoctorInputChange} required />
-                        </div>
-                        <div className="form-group">
-                            <label>Specialization:</label>
-                            <input type='text' className='form-control' name='specialization' value={newDoctor.specialization || ''} onChange={handleNewDoctorInputChange} required />
-                        </div>
-                        <div className="form-group">
-                            <label>License Number:</label>
-                            <input type='text' className='form-control' name='license_number' value={newDoctor.license_number || ''} onChange={handleNewDoctorInputChange} required />
-                        </div>
-                        <div className="form-group">
-                            <label>Phone:</label>
-                            <input type='text' className='form-control' name='phone' value={newDoctor.phone || ''} onChange={handleNewDoctorInputChange} required />
-                        </div>
-                        <div className="form-group">
-                            <label>Email:</label>
-                            <input type='email' className='form-control' name='email' value={newDoctor.email || ''} onChange={handleNewDoctorInputChange} required />
-                        </div>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="submit" className="btn btn-success">Save</button>
-                        <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>Close</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-)}
-
-
+                )}
         </div>
     );
 }

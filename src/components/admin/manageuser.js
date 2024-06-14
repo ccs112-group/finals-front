@@ -86,9 +86,9 @@ export default function UserManagement() {
     };
 
     return (
-        <div>
+        <div className="crud">
             <Homepage />
-            <main className="container mt-5">
+            <main className="crud-body">
                 <table className='table table-striped'>
                     <thead className='thead-dark'>
                         <tr>

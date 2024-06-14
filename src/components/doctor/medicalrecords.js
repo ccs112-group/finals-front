@@ -162,8 +162,9 @@ export default function MedicalRecordsManagement() {
     };
 
     return (
-        <div className='container mt-5'>
-            <Homepagedoctor />
+        <div className="crud">
+        <Homepagedoctor />
+        <main className="crud-body">
             <button className="btn btn-primary mb-3" onClick={openAddRecordModal}>Add Medical Record</button>
             <table className='table table-striped'>
                 {/* Table Header */}
@@ -355,6 +356,7 @@ export default function MedicalRecordsManagement() {
                     </form>
                 </div>
             )}
+            </main>
         </div>
     );
 }

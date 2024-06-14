@@ -122,8 +122,9 @@ export default function PatientManagement() {
     };
 
     return (
-        <div className='container mt-5'>
-            <Homepagedoctor/>
+        <div className="crud">
+        <Homepagedoctor />
+        <main className="crud-body">
             <table className='table table-striped'>
                 {/* Table Header */}
                 <thead className='thead-dark'>
@@ -252,7 +253,7 @@ export default function PatientManagement() {
                 </div>
             )}
             
-        
+        </main>
         </div>
     );
 }

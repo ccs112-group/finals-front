@@ -23,11 +23,11 @@ export default function Header({items, setSearchData}) {
   return (
     <div>
         {console.warn(query)}
-        <nav className="navbar navbar-expand-lg navbar-dark bg-info">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-info header">
             <div className="container px-4 px-lg-5">
-            <div className='logo-container'>
-          <label className='logo'>SOLIDD <span>PARTS</span></label>
-        </div>
+                <div className='logo-container'>
+                    <label className='logo'>Medical Appointment System</label>
+                </div>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

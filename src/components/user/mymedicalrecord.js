@@ -27,15 +27,9 @@ export default function MedicalRecordsManagement() {
     };
 
     return (
-        <div className="container-fluid">
-            <div className="row">
-                {/* Sidebar */}
-                <nav className="col-md-3 col-lg-2 d-md-block bg-light sidebar">
-                    <Homepageuser />
-                </nav>
-
-                {/* Main content */}
-                <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+        <div className="crud">
+        <Homepageuser />
+        <main className="crud-body">
                     <div className="container mt-5">
                         <h2>Medical Records</h2>
                         <table className='table table-striped'>
@@ -98,6 +92,5 @@ export default function MedicalRecordsManagement() {
                     )}
                 </main>
             </div>
-        </div>
     );
 }

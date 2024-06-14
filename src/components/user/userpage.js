@@ -69,15 +69,9 @@ export default function DoctorManagement() {
     };
 
     return (
-        <div className="container-fluid">
-            <div className="row">
-                {/* Sidebar */}
-                <nav className="col-md-3 col-lg-2 d-md-block bg-light sidebar">
-                    <Homepageuser />
-                </nav>
-
-                {/* Main content */}
-                <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content">
+        <div className="crud">
+        <Homepageuser />
+        <main className="crud-body">
                     <h2>Doctor Management</h2>
                     <table className='table table-striped'>
                         <thead className='thead-dark'>
@@ -171,6 +165,5 @@ export default function DoctorManagement() {
                     </div>
                 )}
             </div>
-        </div>
     );
 }

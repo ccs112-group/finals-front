@@ -78,6 +78,7 @@ function App() {
         {/* <Route path="/doctor" element={<DoctorPage />} /> */} eto yung patient ko
         <Route path="/doctor" element={<MyAppointment />} />
         <Route path="/homepagereceptionist" element={<Homepagereceptionist />} />
+        <Route path="/receptionist" element={<Homepagereceptionist />} />
         
         <Route path="/managepatient" element={<ManagePatient />} />
 

@@ -3,24 +3,16 @@ import { Link } from 'react-router-dom';
 
 const Homepagedoctor = () => {
     return (
-        <div className="container-fluid">
-            <div className="row">
-                <nav className="col-md-2 d-none d-md-block bg-light sidebar">
+                <nav className="crud-side">
                     <div className="position-sticky">
                         <div className="nav flex-column">
-                            <Link className="nav-link" to="/doctor">Admin Dashboard</Link>
-                            <Link className="nav-link" to="/doctorpage">manage patient</Link>
-                            <Link className="nav-link" to="/myAppointment">my appointment</Link>
-                            <Link className="nav-link" to="/medicalrecords">medical records</Link>
+                            <Link className="nav-link" to="/doctor">Doctor Dashboard</Link>
+                            <Link className="nav-link" to="/doctorpage">Manage Patient</Link>
+                            <Link className="nav-link" to="/myAppointment">My Appointment</Link>
+                            <Link className="nav-link" to="/medicalrecords">Medical Records</Link>
                         </div>
                     </div>
                 </nav>
-
-                <main className="col-md-10 ms-sm-auto col-lg-10 px-md-4">
-                    {/* Your main content goes here */}
-                </main>
-            </div>
-        </div>
     );
 }
 
